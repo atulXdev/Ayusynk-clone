@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AyuSynk 2 Pro Lite | Bluetooth Stethoscope</title>
+    <meta name="description" content="AyuSynk 2 Pro Lite is a Bluetooth stethoscope for real-time telemedicine use. Offers 60× amplification, noise cancellation, AI detection, recording, and sharing.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .product-hero {
+            position: relative;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-top: 70px;
+        }
+        .product-hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .product-hero-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .product-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .product-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: left;
+            color: var(--white);
+            max-width: 600px;
+            padding: 0 20px;
+        }
+        .product-hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        .product-hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        .product-hero-content .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .product-hero-content .price-note {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .product-main {
+            padding: 5rem 0;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+        .product-image-section {
+            background: #000;
+            border-radius: 16px;
+            padding: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+        }
+        .product-image-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .product-details h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+        .product-details p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+        .feature-badges {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+        .badge-item {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .badge-item h3 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-top: 1rem;
+        }
+        .specs-section {
+            background: var(--bg-light);
+            padding: 5rem 0;
+        }
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .spec-category {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+        }
+        .spec-category h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+        }
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        .spec-item:last-child {
+            border-bottom: none;
+        }
+        .spec-label {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        .spec-value {
+            color: var(--text-light);
+        }
+        .whats-in-box {
+            padding: 5rem 0;
+        }
+        .box-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .box-item {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        .box-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        .box-item h4 {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            margin-top: 1rem;
+        }
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            .product-hero {
+                height: 70vh;
+            }
+            .product-hero-content h1 {
+                font-size: 2rem;
+            }
+            .product-hero-content p {
+                font-size: 1rem;
+            }
+            .product-hero-content .price {
+                font-size: 1.8rem;
+            }
+            .product-hero-content .price-note {
+                font-size: 0.8rem;
+            }
+            .hero-buttons {
+                flex-direction: column;
+            }
+            .hero-buttons a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="https://ayusynk.ai/wp-content/uploads/2024/07/logo-1.png" alt="AyuSynk Logo">
+                    </a>
+                </div>
+                <input type="checkbox" id="mobile-menu-toggle">
+                <ul class="nav-menu">
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">Products</a>
+                        <div class="dropdown-menu">
+                            <a href="ayusynk-pro-lite.html" class="dropdown-item">AyuSynk 2 Pro Lite</a>
+                            <a href="#" class="dropdown-item">AyuSynk 2 Pro Advance</a>
+                            <a href="#" class="dropdown-item">AyuSynk 2 Base</a>
+                            <a href="#" class="dropdown-item">AyuSynk 2+</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">Solution</a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item">Telemedicine</a>
+                            <a href="#" class="dropdown-item">Doctors</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Partner</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">Company</a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item">About Us</a>
+                            <a href="contact.html" class="dropdown-item">Contact Us</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Blogs</a>
+                    </li>
+                </ul>
+                <a href="#" class="btn-primary" style="margin-left: 2rem; padding: 0.75rem 2rem; font-size: 0.95rem;">Book a Demo</a>
+                <label for="mobile-menu-toggle" class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+            </div>
+        </div>
+    </nav>
+
+    <section class="product-hero">
+        <div class="product-hero-video">
+            <video autoplay muted loop playsinline>
+                <source src="https://ayusynk.ai/wp-content/uploads/2024/07/pr-video.mp4" type="video/mp4">
+            </video>
+            <div class="product-hero-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="product-hero-content">
+                <h1>Ayusynk 2 Pro lite</h1>
+                <p>The real time screening Digital Stethoscope for Connected Care.</p>
+                <div class="price">₹28,000.00</div>
+                <p class="price-note">₹22,000 + ₹6,000/year for algorithm, 20000 for 1 time integration cost within scope</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn-primary">Buy now</a>
+                    <a href="#" class="btn-secondary">Request a demo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-main">
+        <div class="container">
+            <div class="product-grid">
+                <div class="product-image-section">
+                    <img src="https://ayusynk.ai/wp-content/uploads/2025/08/d-stetho-2.png" alt="AyuSynk 2 Pro Lite">
+                </div>
+                <div class="product-details">
+                    <h2>The Digital Stethoscope for Tele Auscultation</h2>
+                    <p>The AyuSynk 2Pro Lite is designed to seamlessly integrate into your clinical workflow, offering 100 real-time screenings per day. It delivers unmatched sound quality with 60x amplification, advanced noise cancellation, and AI-based detection.</p>
+                    <p>This digital stethoscope facilitates recording, sharing, and visualizing auscultation sounds through the AyuShare app, enabling better clinical decisions and elevating patient care.</p>
+                </div>
+            </div>
+
+            <div class="feature-badges">
+                <div class="badge-item">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                        <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                    </svg>
+                    <h3>60X Amplification</h3>
+                </div>
+                <div class="badge-item">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                    <h3>Denoise</h3>
+                </div>
+                <div class="badge-item">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                    <h3>Dedicated Filters for Heart and Lungs</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="specs-section">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 3rem;">SPECIFICATIONS</h2>
+            <div class="specs-grid">
+                <div class="spec-category">
+                    <h3>Battery & Power Features</h3>
+                    <div class="spec-item">
+                        <span class="spec-label">Charging time</span>
+                        <span class="spec-value">Max &lt; 2hrs*</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Continuous battery backup</span>
+                        <span class="spec-value">8hrs*</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Battery type</span>
+                        <span class="spec-value">Li-ion Polymer</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Battery capacity</span>
+                        <span class="spec-value">3.7V 500mAh</span>
+                    </div>
+                </div>
+
+                <div class="spec-category">
+                    <h3>Audio Features</h3>
+                    <div class="spec-item">
+                        <span class="spec-label">Audio Output</span>
+                        <span class="spec-value">Built in speakers</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Sound amplification</span>
+                        <span class="spec-value">Upto 60x</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Minimize ambient noise</span>
+                        <span class="spec-value">Noise reduction</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Volume control</span>
+                        <span class="spec-value">Adjust volume level</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Frequency range</span>
+                        <span class="spec-value">20Hz - 20000Hz</span>
+                    </div>
+                </div>
+
+                <div class="spec-category">
+                    <h3>Other Features</h3>
+                    <div class="spec-item">
+                        <span class="spec-label">Material</span>
+                        <span class="spec-value">Durable construction</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Filters</span>
+                        <span class="spec-value">Heart and lung filters</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Weight</span>
+                        <span class="spec-value">800gms</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Type</span>
+                        <span class="spec-value">Electronic/Digital</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="whats-in-box">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">What's in the Box</h2>
+            <div class="box-items">
+                <div class="box-item">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                    <h4>AyuSynk Device</h4>
+                </div>
+                <div class="box-item">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                        <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                        <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                        <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                    </svg>
+                    <h4>USB Cable</h4>
+                </div>
+                <div class="box-item">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                    <h4>Earphones</h4>
+                </div>
+                <div class="box-item">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    <h4>Binaural</h4>
+                </div>
+                <div class="box-item">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                        <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                    </svg>
+                    <h4>Chestpiece</h4>
+                </div>
+                <div class="box-item">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                    <h4>Warranty Card</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Get in Touch with Us Today!</h2>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn-primary">Contact us</a>
+                    <a href="#" class="btn-secondary">Book a Demo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="https://ayusynk.ai/wp-content/uploads/2024/07/logo-1.png" alt="AyuSynk Logo" class="footer-logo">
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="YouTube">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="ayusynk-pro-lite.html">AyuSynk 2 Pro Lite</a></li>
+                        <li><a href="#">AyuSynk 2 Pro Advance</a></li>
+                        <li><a href="#">AyuSynk 2 Base</a></li>
+                        <li><a href="#">AyuSynk 2+</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Partner</a></li>
+                        <li><a href="#">Blogs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Get in touch</h4>
+                    <p><strong>Contact Sales</strong></p>
+                    <p><a href="tel:08047191146" style="color: rgba(255, 255, 255, 0.7); text-decoration: none;">080-471-91146</a></p>
+                    <p style="margin-top: 1rem;"><strong>Support Sales</strong></p>
+                    <p><a href="tel:08047181855" style="color: rgba(255, 255, 255, 0.7); text-decoration: none;">080-471-81855</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ayu Devices Pvt Ltd</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/919606924332" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+    </a>
+</body>
+</html>
